@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neeraj &amp; Nidhi — Royal Wedding Invitation | Gorakhpur (शुभ विवाहोत्सव)</title>
+<meta name="description" content="Chi. Neeraj Gupta &amp; Ayu. Nidhi Gupta are tying the knot. Join the royal wedding celebrations on 6th December 2026 at Sumangalam Resort, Gorakhpur.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Floating Rose Petals & Golden Sparkles Canvas -->
+<canvas id="particlesCanvas"></canvas>
+
+<!-- Mobile Navigation Backdrop Overlay -->
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- ============ ROYAL ENVELOPE OPENING OVERLAY ============ -->
+<div class="envelope-overlay" id="envelopeOverlay">
+  <div class="envelope-wrapper">
+    <img src="images/ganesh-idol.png" alt="Lord Ganesha" class="envelope-ganesh-top">
+    <div class="envelope-shloka">॥ श्री गणेशाय नमः ॥</div>
+    <div class="envelope-sub">The Royal Wedding Invitation</div>
+
+    <div class="envelope-box" id="envelopeBox" title="Tap to Open Invitation">
+      <img src="images/maroonenvelop.png" alt="Royal Wedding Envelope" class="envelope-img">
+      <div class="envelope-seal-btn" id="waxSealBtn">
+        <span>N&amp;N</span>
+        <small>Open</small>
+      </div>
+    </div>
+
+    <div class="envelope-prompt">
+      <span>✨ Tap the Wax Seal to Open Invitation ✨</span>
+    </div>
+    <button class="envelope-skip-btn" id="envelopeSkip">Directly Enter Wedding Website &rarr;</button>
+  </div>
+</div>
+
+<!-- ============ STICKY NAVIGATION BAR ============ -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="#home" class="nav-brand">
+      <div class="nav-seal">N&amp;N</div>
+      <span class="nav-title">Neeraj &amp; Nidhi</span>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#card-showcase">Wedding Cards</a></li>
+      <li><a href="#ceremonies">Itinerary</a></li>
+      <li><a href="#scratch">Scratch &amp; Reveal</a></li>
+      <li><a href="#family">Family Grace</a></li>
+      <li><a href="#venue">Venue &amp; Baarat</a></li>
+      <li><a href="#rsvp">RSVP</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="nav-replay-btn" id="navReplayBtn" title="Replay Envelope Animation">
+        ✉ Open Envelope
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO SECTION ============ -->
+<!-- ============ HERO SECTION ============ -->
+<header class="hero" id="home">
+  <!-- Subtle Palatial Light Vignette Overlay -->
+  <div class="hero-bg-overlay"></div>
+
+  <div class="wrap">
+    <!-- Royal Imperial Framed Card -->
+    <div class="hero-card-frame" id="heroCardFrame">
+      <div class="hero-card-inner">
+        <!-- 4 Ornate Golden Filigree Corners -->
+        <span class="frame-corner frame-corner--tl" aria-hidden="true"></span>
+        <span class="frame-corner frame-corner--tr" aria-hidden="true"></span>
+        <span class="frame-corner frame-corner--bl" aria-hidden="true"></span>
+        <span class="frame-corner frame-corner--br" aria-hidden="true"></span>
+
+        <!-- Top Royal Toran Garland -->
+        <img src="images/crop-top-floral.png" alt="Royal Toran" class="hero-toran">
+
+        <!-- Lord Ganesha with Sacred Aura -->
+        <div class="hero-ganesh-wrap">
+          <div class="hero-ganesh-aura"></div>
+          <img src="images/ganesh-idol.png" alt="Lord Ganesha" class="hero-ganesh-idol">
+        </div>
+
+        <div class="hero-mantra">॥ श्री गणेशाय नमः ॥</div>
+        <p class="hero-verse">
+          वक्रतुण्ड महाकाय सूर्यकोटि समप्रभः ।<br>
+          निर्विघ्नं कुरुमे देव सर्व कार्येषु सर्वदा ॥
+        </p>
+
+        <!-- Royal Tag -->
+        <div class="hero-eyebrow-badge">
+          <span>✦ Shubh Vivahotsav &bull; Gorakhpur ✦</span>
+        </div>
+        
+        <!-- Royal Couple Names with Shimmer -->
+        <h1 class="hero-couple-names">Neeraj <span class="amp">&amp;</span> Nidhi</h1>
+        <div class="hero-hindi-names">चि. नीरज गुप्ता &nbsp;संग&nbsp; आयु. निधी गुप्ता</div>
+
+        <!-- Ornate Flourish Divider -->
+        <div class="hero-ornament-divider">
+          <span class="ornament-line"></span>
+          <span class="ornament-symbol">🪔</span>
+          <span class="ornament-line"></span>
+        </div>
+
+        <p class="hero-invitation-sub">
+          With the divine grace of Almighty and elders' cherished blessings,<br class="hide-mobile">
+          we cordially invite you to celebrate the sacred matrimony and shower your loving blessings on their union.
+        </p>
+
+        <!-- Auspicious Date & Venue Badge -->
+        <div class="hero-date-venue-badge">
+          <div class="badge-item">
+            <span class="badge-icon">🗓️</span>
+            <span><strong>Sunday, 6th December 2026</strong></span>
+          </div>
+          <div class="badge-sep">&bull;</div>
+          <div class="badge-item">
+            <span class="badge-icon">👑</span>
+            <span>Baarat: <strong>6:00 PM Sharp</strong></span>
+          </div>
+          <div class="badge-sep">&bull;</div>
+          <div class="badge-item">
+            <span class="badge-icon">📍</span>
+            <span><strong>Sumangalam Resort, Gorakhpur</strong></span>
+          </div>
+        </div>
+
+        <!-- Live Real-Time Countdown -->
+        <div class="countdown-container">
+          <div class="countdown-title">✨ Auspicious Muhurat Countdown ✨</div>
+          <div class="countdown-grid" id="countdown">
+            <div class="countdown-item">
+              <span class="countdown-number" id="cd-days">00</span>
+              <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-item">
+              <span class="countdown-number" id="cd-hours">00</span>
+              <span class="countdown-label">Hours</span>
+            </div>
+            <div class="countdown-item">
+              <span class="countdown-number" id="cd-mins">00</span>
+              <span class="countdown-label">Minutes</span>
+            </div>
+            <div class="countdown-item">
+              <span class="countdown-number" id="cd-secs">00</span>
+              <span class="countdown-label">Seconds</span>
+            </div>
+          </div>
+          <div class="countdown-subtext">Counting down to Baarat Departure (6:00 PM IST)</div>
+        </div>
+
+        <div class="hero-cta-group">
+          <a href="#card-showcase" class="btn-primary">📜 View Official Cards &rarr;</a>
+          <a href="#ceremonies" class="btn-outline">📅 Ceremonies Schedule &rarr;</a>
+          <a href="#scratch" class="btn-accent-gold">✨ Scratch for Muhurat &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ OFFICIAL WEDDING CARD SHOWCASE ============ -->
+<section class="section section--white" id="card-showcase">
+  <div class="wrap">
+    <div class="center">
+      <span class="kicker">Divine Patrika</span>
+      <h2 class="section-title">The Official Wedding Invitation Card</h2>
+      <span class="shloka-text">॥ के पावन परिणय व दाम्पत्य जीवन की मधुर बेला ॥</span>
+      <div class="divider"></div>
+      <p class="lede">
+        Every sacred detail as blessed by our respected ancestors and families. Browse through the three authentic pages of our wedding invitation card below.
+      </p>
+    </div>
+
+    <!-- Card Selector Tabs -->
+    <div class="card-showcase-tabs">
+      <button class="card-tab-btn active" data-target="cardPanel1">
+        Page 1: Auspicious Invitation (शुभ निमंत्रण)
+      </button>
+      <button class="card-tab-btn" data-target="cardPanel2">
+        Page 2: Ceremonies Schedule (मांगलिक कार्यक्रम)
+      </button>
+      <button class="card-tab-btn" data-target="cardPanel3">
+        Page 3: Vivahotsav &amp; Contacts (प्रेषक एवं संपर्क)
+      </button>
+    </div>
+
+    <!-- Panel 1: Main Invitation Card -->
+    <div class="card-panel active" id="cardPanel1">
+      <div class="card-presentation-grid">
+        <div class="card-visual-box">
+          <img src="images/card-page1-invitation.png" alt="Neeraj &amp; Nidhi Royal Wedding Invitation Card" class="card-frame-img zoomable-card">
+          <div class="card-action-bar-below">
+            <button type="button" class="btn-card-action btn-zoom-trigger" data-img="images/card-page1-invitation.png" data-title="Card 1: Royal Wedding Invitation (शुभ निमंत्रण)">
+              🔍 Zoom Full-Screen
+            </button>
+            <a href="images/card-page1-invitation.png" download="Neeraj-Nidhi-Royal-Wedding-Invitation.png" class="btn-card-action">
+              📥 Download Card
+            </a>
+          </div>
+        </div>
+
+        <div class="card-details-box">
+          <span class="card-tag">Grandmother's Divine Blessings</span>
+          <h3>Sacred Wedding Invitation</h3>
+          <span class="hindi-sub">परमपिता परमात्मा की असीम कृपा से</span>
+
+          <div class="card-detail-item">
+            <strong>Elders' Blessings (वरिष्ठ आशीर्वाद):</strong>
+            <p>
+              <strong>Smt. Leelawati Devi</strong> (Wife of Late Shri Vindhyachal Sao) cordially invites you with boundless joy to the auspicious wedding of her beloved grandson.
+            </p>
+          </div>
+
+          <div class="card-detail-item">
+            <strong>The Groom (वर):</strong>
+            <p>
+              <strong>Chi. Neeraj Gupta</strong><br>
+              Son of Smt. Indira Gupta &amp; Shri Chandrabhan Gupta
+            </p>
+          </div>
+
+          <div class="card-detail-item">
+            <strong>The Bride (वधू):</strong>
+            <p>
+              <strong>Ayushmati Nidhi Gupta</strong><br>
+              Daughter of Smt. Sheela Gupta &amp; Shri Awadh Narayan Gupta<br>
+              <em style="color:var(--text-muted); font-size:0.88rem;">Resident of: Opposite Degree College, Bhatauli, Gorakhpur</em>
+            </p>
+          </div>
+
+          <div class="card-detail-item">
+            <strong>Warm Regards (दर्शनाभिलाषी):</strong>
+            <p>
+              Purushottam, Khurchun, Jeeut, Vijay Shankar, Ram Autar, Rajesh, Rajnikant, Baidyanath, Nikhil, Major Pankaj, Ashutosh, Ankit, Bhola, Rahul, Golu, Pawan, Kushagra, and all Kasaudhan Family &amp; Friends.
+            </p>
+          </div>
+
+          <div class="card-detail-item">
+            <strong>Cordially Invited By (विनीत):</strong>
+            <p>
+              Munni Lal Kasaudhan &bull; Chandu Kasaudhan
+            </p>
+          </div>
+
+          <div class="card-detail-item" style="background:var(--bg-gold-soft); padding:10px 14px; border-radius:var(--radius-sm); border:1px dashed var(--border-gold);">
+            <strong style="color:var(--maroon);">Sweet Children's Note:</strong>
+            <p style="font-family:var(--hindi); color:var(--maroon-deep); font-size:1.05rem;">
+              "मेरे मामा / चाचा की शादी में जलूल-जलूल आना" &mdash; <strong>पार्थ, मीरा, अवनी (Parth, Meera, Avani)</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 2: Ceremonies Schedule -->
+    <div class="card-panel" id="cardPanel2">
+      <div class="card-presentation-grid">
+        <div class="card-visual-box">
+          <img src="images/card-page2-karyakram.png" alt="Neeraj &amp; Nidhi Wedding Ceremonies Itinerary" class="card-frame-img zoomable-card">
+          <div class="card-action-bar-below">
+            <button type="button" class="btn-card-action btn-zoom-trigger" data-img="images/card-page2-karyakram.png" data-title="Card 2: Auspicious Ceremonies Itinerary (मांगलिक कार्यक्रम)">
+              🔍 Zoom Full-Screen
+            </button>
+            <a href="images/card-page2-karyakram.png" download="Neeraj-Nidhi-Wedding-Itinerary.png" class="btn-card-action">
+              📥 Download Card
+            </a>
+          </div>
+        </div>
+
+        <div class="card-details-box">
+          <span class="card-tag">Auspicious Programs</span>
+          <h3>Mangalik Karyakram Itinerary</h3>
+          <span class="hindi-sub">विघ्न हरण मंगल करण श्री गणपति महाराज</span>
+
+          <div class="card-detail-item">
+            <strong>1. Akhand Ramayan Path Commencement:</strong>
+            <p>Friday, 4th December 2026 at 11:00 AM Morning</p>
+          </div>
+
+          <div class="card-detail-item">
+            <strong>2. Sacred Purnahuti:</strong>
+            <p>Saturday, 5th December 2026 at 11:00 AM Morning</p>
+          </div>
+
+          <div class="card-detail-item">
+            <strong>3. Shubh Haldi Ceremony:</strong>
+            <p>Saturday, 5th December 2026 at 12:00 PM Afternoon (Noon)</p>
+          </div>
+
+          <div class="card-detail-item">
+            <strong>4. Shubh Vivah &amp; Holy Pheras:</strong>
+            <p>
+              Sunday, 6th December 2026 &bull; Auspicious Night Lagna<br>
+              <strong>Baarat Departure:</strong> Leaves at 6:00 PM Sharp from Groom's residence (House No. 221, Ramkrishna Nagar, Bagaha Baba Mandir, Rustampur, Gorakhpur) for the wedding venue.
+            </p>
+          </div>
+
+          <div class="card-detail-item">
+            <strong>5. Milan &amp; Vidaai:</strong>
+            <p>Monday, 7th December 2026 &bull; Early Morning (Pratah Bela)</p>
+          </div>
+
+          <div class="card-detail-item">
+            <strong>Wedding Venue (विवाह स्थल):</strong>
+            <p style="font-weight:600; color:var(--maroon);">
+              Sumangalam Resort (सुमंगलम रिसॉर्ट)<br>
+              Pathra Dhala, Transport Nagar, Gorakhpur, Uttar Pradesh
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 3: Cover & Contacts -->
+    <div class="card-panel" id="cardPanel3">
+      <div class="card-presentation-grid">
+        <div class="card-visual-box">
+          <img src="images/card-page3-cover.png" alt="Neeraj &amp; Nidhi Shubh Vivahotsav Cover &amp; Sender" class="card-frame-img zoomable-card">
+          <div class="card-action-bar-below">
+            <button type="button" class="btn-card-action btn-zoom-trigger" data-img="images/card-page3-cover.png" data-title="Card 3: Vivahotsav &amp; Contacts (प्रेषक एवं संपर्क)">
+              🔍 Zoom Full-Screen
+            </button>
+            <a href="images/card-page3-cover.png" download="Neeraj-Nidhi-Vivahotsav-Cover.png" class="btn-card-action">
+              📥 Download Card
+            </a>
+          </div>
+        </div>
+
+        <div class="card-details-box">
+          <span class="card-tag">Wedding Cover &amp; Sender</span>
+          <h3>Shubh Vivahotsav</h3>
+          <span class="hindi-sub">रविवार, 6 दिसम्बर, 2026</span>
+
+          <div class="card-detail-item">
+            <strong>The Auspicious Union:</strong>
+            <p style="font-size:1.15rem; color:var(--maroon); font-family:var(--display); font-weight:700;">
+              Chi. Neeraj Gupta &nbsp;weds&nbsp; Ayu. Nidhi Gupta
+            </p>
+            <p>Royal Monogram: <strong>N &amp; N</strong></p>
+          </div>
+
+          <div class="card-detail-item">
+            <strong>Invitation Sender (प्रेषक):</strong>
+            <p>
+              <strong>Shri Chandrabhan Gupta</strong><br>
+              House No. 221, Ramkrishna Nagar,<br>
+              Bagaha Baba Mandir, Rustampur, Gorakhpur, Uttar Pradesh
+            </p>
+          </div>
+
+          <div class="card-detail-item">
+            <strong>Direct Contact &amp; Helpline:</strong>
+            <p style="font-weight:600; color:var(--maroon);">
+              📞 +91 9436685069 &nbsp;|&nbsp; +91 8209099177 &nbsp;|&nbsp; +91 8121004171
+            </p>
+          </div>
+
+          <div style="margin-top:20px; display:flex; gap:12px; flex-wrap:wrap;">
+            <a href="tel:9436685069" class="btn-primary" style="padding:10px 20px; font-size:0.82rem;">📞 Call +91 9436685069</a>
+            <a href="tel:8209099177" class="btn-outline" style="padding:10px 20px; font-size:0.82rem;">📞 Call +91 8209099177</a>
+            <a href="tel:8121004171" class="btn-outline" style="padding:10px 20px; font-size:0.82rem;">📞 Call +91 8121004171</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MANGALIK KARYAKRAM (CELEBRATION SCHEDULE) ============ -->
+<section class="section section--cream" id="ceremonies">
+  <div class="wrap">
+    <div class="center">
+      <span class="kicker">Save The Dates</span>
+      <h2 class="section-title">Mangalik Karyakram Itinerary</h2>
+      <span class="shloka-text">॥ मांगलिक कार्यक्रम ॥</span>
+      <div class="divider"></div>
+      <p class="lede">
+        Join us in celebrating five sacred milestones of culture, Vedic rituals, festive joy, and eternal companionship.
+      </p>
+    </div>
+
+    <div class="events-grid">
+      <!-- 1. Akhand Ramayan Path Shubharambh -->
+      <div class="event-card">
+        <div class="event-icon-circle">📖</div>
+        <h3 class="event-card-title">Akhand Ramayan Path</h3>
+        <div class="event-card-hindi">अखण्ड रामायण पाठ शुभारंभ</div>
+        <div class="event-date-box">
+          <span>Friday, 4th Dec 2026</span>
+        </div>
+        <div class="event-timing-row">⏰ 11:00 AM Morning</div>
+        <p class="event-desc-text">
+          Commencement of the 24-hour non-stop auspicious recitation of Shri Ramcharitmanas to invoke divine peace and harmony.
+        </p>
+        <div class="event-venue-text">
+          📍 <strong>Groom's Residence:</strong> Ramkrishna Nagar, Rustampur, Gorakhpur
+        </div>
+        <div class="event-actions">
+          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Akhand+Ramayan+Path+-+Neeraj+%26+Nidhi+Wedding&dates=20261204T053000Z/20261204T123000Z&details=Commencement+of+Akhand+Ramayan+Path+for+Neeraj+and+Nidhi+Wedding&location=Ramkrishna+Nagar,+Rustampur,+Gorakhpur" target="_blank" rel="noopener" class="cal-btn">
+            📅 Google Calendar
+          </a>
+        </div>
+      </div>
+
+      <!-- 2. Purnahuti -->
+      <div class="event-card">
+        <div class="event-icon-circle">🪔</div>
+        <h3 class="event-card-title">Ramayan Purnahuti</h3>
+        <div class="event-card-hindi">पूर्णाहुति एवं महाआरती</div>
+        <div class="event-date-box">
+          <span>Saturday, 5th Dec 2026</span>
+        </div>
+        <div class="event-timing-row">⏰ 11:00 AM Morning</div>
+        <p class="event-desc-text">
+          Sacred conclusion of the Akhand Ramayan Path with holy Vedic havan offerings, maha aarti, and devotional prasadam.
+        </p>
+        <div class="event-venue-text">
+          📍 <strong>Groom's Residence:</strong> Ramkrishna Nagar, Rustampur, Gorakhpur
+        </div>
+        <div class="event-actions">
+          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Ramayan+Purnahuti+-+Neeraj+%26+Nidhi+Wedding&dates=20261205T053000Z/20261205T073000Z&details=Purnahuti+of+Akhand+Ramayan+Path&location=Ramkrishna+Nagar,+Rustampur,+Gorakhpur" target="_blank" rel="noopener" class="cal-btn">
+            📅 Google Calendar
+          </a>
+        </div>
+      </div>
+
+      <!-- 3. Shubh Haldi -->
+      <div class="event-card">
+        <div class="event-icon-circle">🌼</div>
+        <h3 class="event-card-title">Shubh Haldi Rasam</h3>
+        <div class="event-card-hindi">शुभ हल्दी समारोह</div>
+        <div class="event-date-box">
+          <span>Saturday, 5th Dec 2026</span>
+        </div>
+        <div class="event-timing-row">⏰ 12:00 PM Afternoon (Noon)</div>
+        <p class="event-desc-text">
+          A joyous afternoon wrapped in vibrant yellow turmeric hues, traditional folk wedding songs, and cheerful blessings.
+        </p>
+        <div class="event-venue-text">
+          👗 <strong>Attire:</strong> Haldi Yellow &bull; 📍 <strong>Residence</strong>
+        </div>
+        <div class="event-actions">
+          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Shubh+Haldi+-+Neeraj+%26+Nidhi+Wedding&dates=20261205T063000Z/20261205T103000Z&details=Haldi+Ceremony+of+Neeraj+and+Nidhi&location=Ramkrishna+Nagar,+Rustampur,+Gorakhpur" target="_blank" rel="noopener" class="cal-btn">
+            📅 Google Calendar
+          </a>
+        </div>
+      </div>
+
+      <!-- 4. Shubh Vivah & Baarat (Featured) -->
+      <div class="event-card featured-event">
+        <div class="event-featured-badge">Grand Wedding Day</div>
+        <div class="event-icon-circle">👑</div>
+        <h3 class="event-card-title">Shubh Vivah &amp; Baarat</h3>
+        <div class="event-card-hindi">शुभ विवाह एवं बारात प्रस्थान</div>
+        <div class="event-date-box" style="background:var(--maroon); color:#FFFFFF;">
+          <span>Sunday, 6th Dec 2026</span>
+        </div>
+        <div class="event-timing-row" style="color:var(--maroon);">
+          ⏰ <strong>Baarat:</strong> 6:00 PM Sharp &nbsp;|&nbsp; <strong>Vivah:</strong> Auspicious Night Lagna
+        </div>
+        <p class="event-desc-text">
+          Baarat departs at 6:00 PM from residence. The auspicious wedding rituals, Jaimala, and seven sacred pheras will be solemnized as per Vedic Muhurat.
+        </p>
+        <div class="event-venue-text" style="background:#FFF9EB; border-color:var(--gold);">
+          📍 <strong>Venue:</strong> Sumangalam Resort, Pathra Dhala, Transport Nagar, Gorakhpur
+        </div>
+        <div class="event-actions">
+          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Shubh+Vivah+-+Neeraj+%26+Nidhi+Wedding&dates=20261206T123000Z/20261206T200000Z&details=Grand+Wedding+Ceremony+at+Sumangalam+Resort,+Gorakhpur&location=Sumangalam+Resort,+Transport+Nagar,+Gorakhpur" target="_blank" rel="noopener" class="cal-btn">
+            📅 Google Calendar
+          </a>
+        </div>
+      </div>
+
+      <!-- 5. Milan & Vidaai -->
+      <div class="event-card">
+        <div class="event-icon-circle">💐</div>
+        <h3 class="event-card-title">Milan &amp; Vidaai</h3>
+        <div class="event-card-hindi">मिलन व विदाई</div>
+        <div class="event-date-box">
+          <span>Monday, 7th Dec 2026</span>
+        </div>
+        <div class="event-timing-row">⏰ Early Morning (प्रातः बेला)</div>
+        <p class="event-desc-text">
+          Heartfelt farewell, welcoming the lovely bride into her new home, and receiving the warmest blessings of both united families.
+        </p>
+        <div class="event-venue-text">
+          📍 <strong>Sumangalam Resort &amp; Residence</strong>
+        </div>
+        <div class="event-actions">
+          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Milan+%26+Vidaai+-+Neeraj+%26+Nidhi+Wedding&dates=20261207T013000Z/20261207T043000Z&details=Milan+and+Vidaai+Ceremony&location=Sumangalam+Resort,+Gorakhpur" target="_blank" rel="noopener" class="cal-btn">
+            📅 Google Calendar
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTERACTIVE SCRATCH & REVEAL CARD ============ -->
+<section class="scratch-section" id="scratch">
+  <div class="wrap">
+    <div class="center">
+      <span class="kicker">Interactive Delight</span>
+      <h2 class="section-title">Scratch for Sacred Muhurat</h2>
+      <span class="shloka-text">॥ मङ्गलम् भगवान विष्णुः मङ्गलम् गरुडध्वजः ॥</span>
+      <div class="divider"></div>
+      <p class="lede">
+        Use your finger or mouse to gently scratch the royal golden foil below and unveil the sacred Vivah Muhurat and a special VIP blessing for you!
+      </p>
+    </div>
+
+    <div class="scratch-card-wrapper">
+      <div class="scratch-box">
+        <!-- Revealed Underneath -->
+        <div class="scratch-revealed-content">
+          <div class="scratch-revealed-icon">🪔</div>
+          <h3 class="scratch-revealed-title">Shubh Vivah Muhurat Revealed!</h3>
+          <div class="scratch-revealed-shloka">॥ शुभ लग्नानुसार विवाह संस्कार ॥</div>
+
+          <div class="scratch-revealed-muhurat">
+            <strong>Sunday, 6th December 2026 &bull; Auspicious Night Lagna</strong>
+            <span>Baarat Departure: 6:00 PM Sharp from Ramkrishna Nagar</span>
+          </div>
+
+          <p class="scratch-revealed-blessing">
+            &ldquo;Your gracious presence is our most cherished blessing. You are warmly invited to bless Neeraj &amp; Nidhi at the sacred Mandap in Sumangalam Resort!&rdquo;
+          </p>
+        </div>
+
+        <!-- Golden Canvas to Scratch -->
+        <canvas class="scratch-canvas" id="scratchCanvas"></canvas>
+      </div>
+
+      <div class="scratch-controls-bar">
+        <button type="button" class="btn-primary" id="scratchRevealBtn" style="padding:9px 20px; font-size:0.82rem;">
+          ✨ Reveal Muhurat Instantly
+        </button>
+        <button type="button" class="btn-outline" id="scratchResetBtn" style="padding:9px 20px; font-size:0.82rem;">
+          🔄 Scratch Again
+        </button>
+      </div>
+
+      <span class="scratch-hint-text" id="scratchHint">✦ Gently scratch above to reveal the auspicious surprise ✦</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAMILY BLESSINGS & LINEAGE ============ -->
+<section class="section section--white" id="family">
+  <div class="wrap">
+    <div class="center">
+      <span class="kicker">Roots &amp; Heritage</span>
+      <h2 class="section-title">Family Grace &amp; Auspicious Roots</h2>
+      <span class="shloka-text">॥ कुलदेवताभ्यो नमः &bull; पितृदेवताभ्यो नमः ॥</span>
+      <div class="divider"></div>
+      <p class="lede">
+        With the eternal blessings of our revered ancestors, elders, and the affectionate warmth of our entire extended family.
+      </p>
+    </div>
+
+    <div class="family-grid">
+      <!-- Grandmother -->
+      <div class="family-card">
+        <span class="family-badge">Grandmother's Grace</span>
+        <h3 class="family-names">Smt. Leelawati Devi</h3>
+        <div class="family-names-hindi">श्रीमती लीलावती देवी</div>
+        <p class="family-note">
+          (Dharampatni Swargiya Shri Vindhyachal Sao)<br>
+          Bestowing her divine love, wisdom, and blessings on beloved grandson Chi. Neeraj Gupta.
+        </p>
+      </div>
+
+      <!-- Groom's Parents -->
+      <div class="family-card">
+        <span class="family-badge">Groom's Parents</span>
+        <h3 class="family-names">Smt. Indira &amp; Shri Chandrabhan Gupta</h3>
+        <div class="family-names-hindi">श्रीमती इन्दिरा गुप्ता एवं श्री चन्द्रभान गुप्ता</div>
+        <p class="family-note">
+          Eagerly waiting to welcome all friends and family to bless their beloved son Chi. Neeraj.
+        </p>
+      </div>
+
+      <!-- Bride's Parents -->
+      <div class="family-card">
+        <span class="family-badge">Bride's Parents</span>
+        <h3 class="family-names">Smt. Sheela &amp; Shri Awadh Narayan Gupta</h3>
+        <div class="family-names-hindi">श्रीमती शीला एवं श्री अवध नारायण गुप्ता</div>
+        <p class="family-note">
+          Opposite Degree College, Bhatauli, Gorakhpur.<br>
+          With immense joy, offering their darling daughter Ayushmati Nidhi's hand in marriage.
+        </p>
+      </div>
+    </div>
+
+    <!-- Darshanabhilashi Box -->
+    <div class="darshan-full-box">
+      <div class="darshan-header">
+        <h3>With Best Compliments &bull; दर्शनाभिलाषी</h3>
+        <span>समस्त कसौधन परिवार एवं मित्रगण</span>
+      </div>
+
+      <div class="darshan-list">
+        <span class="darshan-pill">Purushottam Kasaudhan</span>
+        <span class="darshan-pill">Khurchun</span>
+        <span class="darshan-pill">Jeeut</span>
+        <span class="darshan-pill">Vijay Shankar</span>
+        <span class="darshan-pill">Ram Autar</span>
+        <span class="darshan-pill">Rajesh</span>
+        <span class="darshan-pill">Rajnikant</span>
+        <span class="darshan-pill">Baidyanath</span>
+        <span class="darshan-pill">Nikhil</span>
+        <span class="darshan-pill">Major Pankaj</span>
+        <span class="darshan-pill">Ashutosh</span>
+        <span class="darshan-pill">Ankit</span>
+        <span class="darshan-pill">Bhola</span>
+        <span class="darshan-pill">Rahul</span>
+        <span class="darshan-pill">Golu</span>
+        <span class="darshan-pill">Pawan</span>
+        <span class="darshan-pill">Kushagra</span>
+      </div>
+
+      <div class="vineet-box">
+        <div class="vineet-item">
+          <strong>Cordially Invited By (विनीत):</strong>
+          <span>Munni Lal Kasaudhan</span>
+        </div>
+        <div class="vineet-item">
+          <strong>Cordially Invited By (विनीत):</strong>
+          <span>Chandu Kasaudhan</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kids Callout -->
+    <div class="kids-callout-card">
+      <p>"मेरे मामा / चाचा की शादी में जलूल-जलूल आना!"</p>
+      <small>&mdash; पार्थ, मीरा, अवनी (Parth, Meera &amp; Avani)</small>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VENUE, BAARAT ROUTE & TRAVEL GUIDE ============ -->
+<section class="section section--cream" id="venue">
+  <div class="wrap">
+    <div class="center">
+      <span class="kicker">Location &amp; Travel</span>
+      <h2 class="section-title">Wedding Venue &amp; Baarat Route</h2>
+      <span class="shloka-text">॥ विवाह स्थल एवं बारात प्रस्थान ॥</span>
+      <div class="divider"></div>
+      <p class="lede">
+        Complete travel and location guidance for our wedding venue in Gorakhpur, Uttar Pradesh.
+      </p>
+    </div>
+
+    <!-- Grand Illuminated Mandap & Resort Showcase -->
+    <img src="images/mandap-venue.jpg" alt="Sumangalam Resort Mandap Celebration - Gorakhpur" class="venue-mandap-banner">
+
+    <div class="venue-grid">
+      <div class="venue-info-box">
+        <!-- Baarat Departure Point -->
+        <div class="venue-card-item highlight">
+          <h3>Baarat Departure Point (बारात प्रस्थान)</h3>
+          <span class="venue-hindi">रविवार, 6 दिसम्बर, 2026 &bull; सायं 6:00 बजे</span>
+          <p>
+            <strong>Departure Address:</strong><br>
+            House No. 221, Ramkrishna Nagar,<br>
+            Bagaha Baba Mandir, Rustampur, Gorakhpur, Uttar Pradesh.<br>
+            <em style="color:var(--text-muted); font-size:0.88rem;">The Baarat will assemble at our residence and proceed enthusiastically towards the wedding resort at 6:00 PM sharp.</em>
+          </p>
+        </div>
+
+        <!-- Wedding Venue -->
+        <div class="venue-card-item">
+          <h3>The Wedding Venue (विवाह स्थल)</h3>
+          <span class="venue-hindi">सुमंगलम रिसॉर्ट</span>
+          <p>
+            <strong>Sumangalam Resort</strong><br>
+            Pathra Dhala, Transport Nagar,<br>
+            Gorakhpur, Uttar Pradesh.<br>
+            <em style="color:var(--text-muted); font-size:0.88rem;">A grand resort with royal lawns, elegant banquets, and dedicated guest parking.</em>
+          </p>
+        </div>
+
+        <!-- Helpline -->
+        <div class="venue-card-item">
+          <h3>Guest Travel Assistance &bull; संपर्क</h3>
+          <p>
+            For any route directions or guest convenience, feel free to contact:<br>
+            <strong>Shri Chandrabhan Gupta:</strong> +91 9436685069 / +91 8209099177 / +91 8121004171
+          </p>
+        </div>
+      </div>
+
+      <!-- Google Map Frame -->
+      <div class="venue-map-wrapper">
+        <iframe 
+          src="https://www.google.com/maps?q=Sumangalam+Resort,+Transport+Nagar,+Gorakhpur,+Uttar+Pradesh&output=embed" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Sumangalam Resort Gorakhpur Location">
+        </iframe>
+        <div class="venue-map-bottom-bar">
+          <span style="font-size:0.85rem; color:var(--text-muted);">Sumangalam Resort, Transport Nagar, Gorakhpur</span>
+          <a href="https://maps.google.com/?q=Sumangalam+Resort,+Transport+Nagar,+Gorakhpur,+Uttar+Pradesh" target="_blank" rel="noopener" class="btn-primary" style="padding:8px 18px; font-size:0.8rem;">
+            🗺️ Open Google Maps
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ RSVP & DIRECT CONNECT ============ -->
+<section class="section section--soft-rose" id="rsvp">
+  <div class="wrap">
+    <div class="center">
+      <span class="kicker">Kindly Confirm</span>
+      <h2 class="section-title">RSVP &amp; WhatsApp Confirmation</h2>
+      <span class="shloka-text">॥ सादर आमंत्रण ॥</span>
+      <div class="divider"></div>
+      <p class="lede">
+        Please let us know your gracious presence to help us curate your warm hospitality, dining, and seating arrangements with utmost love.
+      </p>
+    </div>
+
+    <div class="rsvp-wrapper">
+      <form id="rsvpForm">
+        <div class="rsvp-form-grid">
+          <div class="form-group">
+            <label for="guestName">Guest Full Name (अतिथि का नाम) *</label>
+            <input type="text" id="guestName" class="form-input" placeholder="e.g. Anand Gupta" required>
+          </div>
+          <div class="form-group">
+            <label for="attendance">Will You Grace Us? (उपस्थिति)</label>
+            <select id="attendance" class="form-input">
+              <option value="Joyfully Attending">Joyfully Attending (सहर्ष उपस्थिति)</option>
+              <option value="Regretfully Decline">Regretfully Cannot Attend (क्षमा प्रार्थी)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="guestCount">Total Members Attending (सदस्य संख्या)</label>
+            <div class="counter-input-wrap">
+              <button type="button" class="counter-btn" id="countMinusBtn">−</button>
+              <input type="number" id="guestCount" class="form-input" min="1" max="20" value="2" readonly>
+              <button type="button" class="counter-btn" id="countPlusBtn">+</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="guestEvents">Functions Attending (कार्यक्रम)</label>
+            <input type="text" id="guestEvents" class="form-input" placeholder="e.g. Shubh Vivah, Haldi, All Events">
+          </div>
+          <div class="form-group rsvp-form-full">
+            <label for="guestNote">Personal Message for the Couple (संदेश)</label>
+            <textarea id="guestNote" class="form-input" rows="3" placeholder="Warmest wishes for Neeraj & Nidhi..."></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary" style="width:100%; justify-content:center; padding:15px; font-size:1rem; margin-top:10px;">
+          💬 Send Confirmation on WhatsApp &rarr;
+        </button>
+      </form>
+
+      <!-- Direct Phone & Share Bar -->
+      <div class="rsvp-contacts-bar">
+        <div class="rsvp-contacts-title">Direct Contact &amp; Family Helplines</div>
+        <div class="phone-buttons-group">
+          <a href="tel:9436685069" class="phone-btn">📞 +91 9436685069</a>
+          <a href="tel:8209099177" class="phone-btn">📞 +91 8209099177</a>
+          <a href="tel:8121004171" class="phone-btn">📞 +91 8121004171</a>
+        </div>
+
+        <div class="share-options-row">
+          <a href="https://api.whatsapp.com/send?text=You%20are%20cordially%20invited%20to%20the%20Royal%20Wedding%20Celebrations%20of%20Neeraj%20%26%20Nidhi%20on%206th%20December%202026%20in%20Gorakhpur!%20View%20the%20complete%20invitation%20card%20here:" target="_blank" rel="noopener" class="whatsapp-share-btn">
+            📲 Share Invitation With Family on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LIGHTBOX ZOOM MODAL ============ -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-content">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close Zoom">&times;</button>
+    <img id="lightboxImg" src="" alt="High Resolution Card" class="lightbox-img">
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+    <div class="lightbox-actions">
+      <a id="lightboxDownloadBtn" href="" download class="btn-primary" style="padding:9px 22px; font-size:0.85rem;">
+        📥 Download High-Res Card
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FLOATING MUSIC CONTROLLER ============ -->
+<audio id="bgMusic" src="audio/bg-music.mp3" loop preload="auto"></audio>
+<div class="music-controller" id="musicController" title="Play / Pause Wedding Shehnai Music">
+  <div class="music-icon-wrap" id="musicIconWrap">🔈</div>
+  <div class="music-info">
+    <span class="music-title">Wedding Music</span>
+    <div class="music-bars">
+      <div class="music-bar"></div>
+      <div class="music-bar"></div>
+      <div class="music-bar"></div>
+      <div class="music-bar"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-seal">N&amp;N</div>
+    <div class="footer-names">Neeraj &amp; Nidhi</div>
+    <div class="footer-date">Sunday, 6th December 2026 &bull; Gorakhpur</div>
+    <p class="footer-blessing-quote">
+      &ldquo;आपकी गरिमामयी उपस्थिति हम सभी में नव ऊर्जा एवं सुरम्य वातावरण का सृजन करेगी।&rdquo;<br>
+      <span style="font-size:0.95rem; font-style:normal;">Your gracious presence will infuse renewed joy and blessed memories into this sacred union.</span>
+    </p>
+    <p class="footer-copy">
+      Gupta &amp; Kasaudhan Family &bull; Shubh Vivahotsav &bull; Gorakhpur, Uttar Pradesh
+    </p>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
