@@ -3,24 +3,41 @@
    Enhanced Interactivity & Full Mobile Responsiveness
    ========================================================= */
 
+// Immediately disable browser automatic scroll restoration and pin to top
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+if (window.location.hash) {
+  try {
+    history.replaceState(null, null, window.location.pathname + window.location.search);
+  } catch (e) {}
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
+  window.scrollTo(0, 0);
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+
   // =======================================================
-  // 1. FLOATING ROSE PETALS & GOLD SPARKLES CANVAS
+  // 1. FLOATING ROSE PETALS & GOLD SPARKLES CANVAS (OPTIMIZED)
   // =======================================================
   const pCanvas = document.getElementById('particlesCanvas');
   if (pCanvas) {
-    const ctx = pCanvas.getContext('2d');
+    const isMobile = window.innerWidth < 768;
+    const ctx = pCanvas.getContext('2d', { alpha: true });
     let width = (pCanvas.width = window.innerWidth);
     let height = (pCanvas.height = window.innerHeight);
 
     window.addEventListener('resize', () => {
       width = pCanvas.width = window.innerWidth;
       height = pCanvas.height = window.innerHeight;
-    });
+    }, { passive: true });
 
+    // Lightweight particle count: 12 on mobile, 28 on desktop for buttery 60fps
+    const totalParticles = isMobile ? 12 : 28;
     const particles = [];
-    const totalParticles = window.innerWidth < 600 ? 20 : 40;
 
     const petalImg = new Image();
     petalImg.src = 'images/falling-rose-petal.png';
@@ -31,26 +48,41 @@ document.addEventListener('DOMContentLoaded', () => {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        size: Math.random() * 12 + 8,
-        speedY: Math.random() * 1.0 + 0.5,
-        speedX: Math.sin(Math.random() * Math.PI) * 0.6 - 0.3,
+        size: isMobile ? (Math.random() * 8 + 6) : (Math.random() * 12 + 8),
+        speedY: Math.random() * 0.7 + 0.35,
+        speedX: Math.sin(Math.random() * Math.PI) * 0.4 - 0.2,
         rotation: Math.random() * 360,
-        rotationSpeed: (Math.random() - 0.5) * 1.2,
-        type: Math.random() > 0.4 ? 'petal' : 'gold',
-        opacity: Math.random() * 0.6 + 0.3
+        rotationSpeed: (Math.random() - 0.5) * 0.8,
+        type: Math.random() > 0.5 ? 'petal' : 'gold',
+        opacity: Math.random() * 0.5 + 0.3
       });
     }
 
+    // Scroll throttle: pause drawing during active scrolling on mobile
+    let isScrolling = false;
+    let scrollTimer = null;
+    window.addEventListener('scroll', () => {
+      if (!isMobile) return;
+      isScrolling = true;
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => { isScrolling = false; }, 120);
+    }, { passive: true });
+
     function animateParticles() {
+      if (document.hidden || (isMobile && isScrolling)) {
+        requestAnimationFrame(animateParticles);
+        return;
+      }
+
       ctx.clearRect(0, 0, width, height);
 
       particles.forEach((p) => {
         p.y += p.speedY;
-        p.x += Math.sin(p.y * 0.01) * 0.6 + p.speedX;
+        p.x += p.speedX;
         p.rotation += p.rotationSpeed;
 
-        if (p.y > height + 30) {
-          p.y = -20;
+        if (p.y > height + 20) {
+          p.y = -15;
           p.x = Math.random() * width;
         }
 
@@ -59,17 +91,17 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.rotate((p.rotation * Math.PI) / 180);
         ctx.globalAlpha = p.opacity;
 
-        if (p.type === 'petal' && petalLoaded) {
+        if (p.type === 'petal' && petalLoaded && !isMobile) {
           ctx.drawImage(petalImg, -p.size / 2, -p.size / 2, p.size, p.size * 1.2);
         } else if (p.type === 'petal') {
           ctx.fillStyle = '#C42746';
           ctx.beginPath();
-          ctx.ellipse(0, 0, p.size * 0.5, p.size * 0.8, Math.PI / 4, 0, Math.PI * 2);
+          ctx.ellipse(0, 0, p.size * 0.45, p.size * 0.75, Math.PI / 4, 0, Math.PI * 2);
           ctx.fill();
         } else {
           ctx.fillStyle = '#D8A53E';
           ctx.beginPath();
-          ctx.arc(0, 0, p.size * 0.2, 0, Math.PI * 2);
+          ctx.arc(0, 0, p.size * 0.22, 0, Math.PI * 2);
           ctx.fill();
         }
 
@@ -114,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =======================================================
-  // 3. ROYAL ENVELOPE OPENING CEREMONY
+  // 3. ROYAL ENVELOPE OPENING CEREMONY (PINNED TO TOP)
   // =======================================================
   const envelopeOverlay = document.getElementById('envelopeOverlay');
   const waxSealBtn = document.getElementById('waxSealBtn');
@@ -122,11 +154,42 @@ document.addEventListener('DOMContentLoaded', () => {
   const envelopeSkip = document.getElementById('envelopeSkip');
   const navReplayBtn = document.getElementById('navReplayBtn');
 
+  // Lock scroll while envelope is displayed
+  if (envelopeOverlay && !envelopeOverlay.classList.contains('opened')) {
+    document.documentElement.classList.add('envelope-locked');
+    document.body.classList.add('envelope-locked');
+  }
+
   function openEnvelope() {
     if (!envelopeOverlay) return;
+
+    // Immediately remove locks and force top scroll
+    document.documentElement.classList.remove('envelope-locked');
+    document.body.classList.remove('envelope-locked');
+
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+
     triggerConfetti(window.innerWidth / 2, window.innerHeight / 2);
     toggleMusic(true);
+
     envelopeOverlay.classList.add('opened');
+
+    // Confirm top scroll after overlay transitions
+    requestAnimationFrame(() => {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    });
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }, 80);
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 250);
   }
 
   if (waxSealBtn) waxSealBtn.addEventListener('click', openEnvelope);
@@ -136,6 +199,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (navReplayBtn) {
     navReplayBtn.addEventListener('click', () => {
       if (!envelopeOverlay) return;
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      document.documentElement.classList.add('envelope-locked');
+      document.body.classList.add('envelope-locked');
       envelopeOverlay.classList.remove('opened');
     });
   }
@@ -354,16 +420,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // 6. CONFETTI BURST
   // =======================================================
   function triggerConfetti(originX, originY) {
+    const isMobile = window.innerWidth < 768;
     const colors = ['#D8A53E', '#C42746', '#BF8C2C', '#F0CA6E', '#851227', '#FFFFFF'];
-    const total = 50;
+    const total = isMobile ? 20 : 45;
 
     for (let i = 0; i < total; i++) {
       const conf = document.createElement('div');
       conf.style.position = 'fixed';
       conf.style.left = (originX || window.innerWidth / 2) + 'px';
       conf.style.top = (originY || window.innerHeight / 2) + 'px';
-      conf.style.width = Math.random() * 10 + 6 + 'px';
-      conf.style.height = Math.random() * 10 + 6 + 'px';
+      conf.style.width = (isMobile ? (Math.random() * 6 + 5) : (Math.random() * 10 + 6)) + 'px';
+      conf.style.height = (isMobile ? (Math.random() * 6 + 5) : (Math.random() * 10 + 6)) + 'px';
       conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
       conf.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
       conf.style.zIndex = '999999';
@@ -372,15 +439,15 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.appendChild(conf);
 
       const angle = Math.random() * Math.PI * 2;
-      const velocity = Math.random() * 180 + 120;
+      const velocity = Math.random() * 140 + 100;
       const destX = Math.cos(angle) * velocity;
-      const destY = Math.sin(angle) * velocity + 150;
+      const destY = Math.sin(angle) * velocity + 120;
 
       conf.animate([
         { transform: 'translate(0, 0) scale(1) rotate(0deg)', opacity: 1 },
-        { transform: `translate(${destX}px, ${destY}px) scale(0.3) rotate(${Math.random() * 720}deg)`, opacity: 0 }
+        { transform: `translate(${destX}px, ${destY}px) scale(0.3) rotate(${Math.random() * 540}deg)`, opacity: 0 }
       ], {
-        duration: Math.random() * 1200 + 1000,
+        duration: Math.random() * 1000 + 700,
         easing: 'cubic-bezier(0.2, 0.8, 0.4, 1)'
       }).onfinish = () => conf.remove();
     }
@@ -556,26 +623,32 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =======================================================
-  // 11. HERO CARD FRAME INTERACTIVE 3D TILT
+  // 11. HERO CARD FRAME INTERACTIVE 3D TILT (DESKTOP ONLY)
   // =======================================================
   const heroCardFrame = document.getElementById('heroCardFrame');
   const heroSection = document.getElementById('home');
 
-  if (heroCardFrame && heroSection && window.matchMedia('(hover: hover)').matches) {
+  if (heroCardFrame && heroSection && window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 769px)').matches) {
+    let ticking = false;
     heroSection.addEventListener('mousemove', (e) => {
-      const rect = heroCardFrame.getBoundingClientRect();
-      const frameCenterX = rect.left + rect.width / 2;
-      const frameCenterY = rect.top + rect.height / 2;
-      
-      const mouseX = e.clientX - frameCenterX;
-      const mouseY = e.clientY - frameCenterY;
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const rect = heroCardFrame.getBoundingClientRect();
+        const frameCenterX = rect.left + rect.width / 2;
+        const frameCenterY = rect.top + rect.height / 2;
+        
+        const mouseX = e.clientX - frameCenterX;
+        const mouseY = e.clientY - frameCenterY;
 
-      // Subtle royal 3D card tilt
-      const rotateX = (-mouseY / (rect.height / 2)) * 3;
-      const rotateY = (mouseX / (rect.width / 2)) * 3;
+        // Subtle royal 3D card tilt
+        const rotateX = (-mouseY / (rect.height / 2)) * 2.5;
+        const rotateY = (mouseX / (rect.width / 2)) * 2.5;
 
-      heroCardFrame.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-2px)`;
-    });
+        heroCardFrame.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-2px)`;
+        ticking = false;
+      });
+    }, { passive: true });
 
     heroSection.addEventListener('mouseleave', () => {
       heroCardFrame.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
